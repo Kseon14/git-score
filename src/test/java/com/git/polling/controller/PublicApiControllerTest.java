@@ -64,7 +64,7 @@ public class PublicApiControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.currentPage").value(1))
                 .andExpect(jsonPath("$.lastPage").value(1))
                 .andExpect(jsonPath("$.scoredRepos[0].repoName").value("test-repo"))
                 .andExpect(jsonPath("$.scoredRepos[0].repoUrl").value("https://github.com/test-repo"))

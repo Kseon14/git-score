@@ -2,7 +2,6 @@ package com.git.polling.service;
 
 import com.git.polling.client.GitPollingClient;
 import com.git.polling.exception.ApiLimitException;
-import com.git.polling.model.Ordering;
 import com.git.polling.model.PageWrapper;
 import com.git.polling.model.Repo;
 import com.git.polling.model.SearchRequestParams;
@@ -58,7 +57,7 @@ public class GitRepoScoringTest {
                 .build();
 
         when(gitPollingClient.fetchRepos(anyString(), any(LocalDate.class), anyLong(),
-                anyInt(), any(Sorting.class), any(Ordering.class)))
+                anyInt(), anyString(), anyString()))
                 .thenReturn(searchResultDto);
 
         PageWrapper result = gitRepoScoring.scoring(searchRequestParams);
@@ -85,7 +84,7 @@ public class GitRepoScoringTest {
                 .build();
 
         when(gitPollingClient.fetchRepos(anyString(), any(LocalDate.class), anyLong(),
-                anyInt(), any(Sorting.class), any(Ordering.class)))
+                anyInt(), anyString(), anyString()))
                 .thenReturn(searchResultDto);
 
         assertThrows(ApiLimitException.class, () -> gitRepoScoring.scoring(searchRequestParams));
@@ -112,11 +111,11 @@ public class GitRepoScoringTest {
                 .build();
 
         when(gitPollingClient.fetchRepos(anyString(), any(LocalDate.class), anyLong(),
-                anyInt(), eq(Sorting.START), any(Ordering.class))).thenReturn(starResultDto);
+                anyInt(), eq(Sorting.START.getKeyWord()), anyString())).thenReturn(starResultDto);
         when(gitPollingClient.fetchRepos(anyString(), any(LocalDate.class), anyLong(),
-                anyInt(), eq(Sorting.FORK), any(Ordering.class))).thenReturn(forkResultDto);
+                anyInt(), eq(Sorting.FORK.getKeyWord()), anyString())).thenReturn(forkResultDto);
         when(gitPollingClient.fetchRepos(anyString(), any(LocalDate.class), anyLong(),
-                anyInt(), eq(Sorting.UPDATE), any(Ordering.class))).thenReturn(newestResultDto);
+                anyInt(), eq(Sorting.UPDATE.getKeyWord()), anyString())).thenReturn(newestResultDto);
 
         PageWrapper result = gitRepoScoring.scoring(searchRequestParams);
 

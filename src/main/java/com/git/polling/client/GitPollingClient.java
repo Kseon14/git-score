@@ -1,8 +1,6 @@
 package com.git.polling.client;
 
-import com.git.polling.model.Ordering;
 import com.git.polling.model.SearchResultDto;
-import com.git.polling.model.Sorting;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +20,6 @@ public interface GitPollingClient {
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createdDate,
             @PathVariable long page,
             @PathVariable int perPage,
-            @PathVariable Sorting sort,
-            @PathVariable Ordering ordering);
+            @PathVariable String sort,
+            @PathVariable String ordering);
 }
