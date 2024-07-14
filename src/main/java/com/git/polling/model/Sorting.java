@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum Sorting {
-    START("star"),
+    START("stars"),
     FORK("forks"),
     UPDATE("updated");
 

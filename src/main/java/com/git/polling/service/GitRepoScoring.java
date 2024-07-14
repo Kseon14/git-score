@@ -78,6 +78,11 @@ public class GitRepoScoring {
         log.debug("calling git api: language: {}, createdDate: {}, page: {}, perPage:{}, sorting:{} " +
                         "ordering: {}", language, createdDate, page, perPage,
                 sorting, ordering);
-        return gitPollingClient.fetchRepos(language, createdDate, page, perPage, sorting, ordering);
+        return gitPollingClient.fetchRepos(language,
+                createdDate,
+                page,
+                perPage,
+                sorting.getKeyWord(),
+                ordering.getKeyWord());
     }
 }
