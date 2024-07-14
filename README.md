@@ -18,7 +18,7 @@ in order to start from docker container:
 Open postman and execute following request:
 
 ```
-localhost:8080/api/public/repositories?createdDate=2024-02-01&language=assembly&page=9
+localhost:9095/api/public/repositories?createdDate=2024-02-01&language=assembly&page=9
 ```
 
  filter param | Description                  
