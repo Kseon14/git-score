@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: polling
+logging:
+  level:
+    com.git.polling: DEBUG
+
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: BASIC
+        errorDecoder: com.git.polling.client.FireBaseErrorDecoder
